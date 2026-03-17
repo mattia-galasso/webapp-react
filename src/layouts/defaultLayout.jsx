@@ -1,7 +1,17 @@
-export default function defaultLayout() {
+import { Outlet } from "react-router";
+import Navbar from "../components/Navbar";
+
+export default function DefaultLayout() {
   return (
     <>
-      <h1>LAYOUT</h1>
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <div>
+          <Outlet />
+        </div>
+      </main>
     </>
   );
 }

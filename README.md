@@ -28,7 +28,7 @@ ma lavoreremo anche su `webapp-express` (la stessa di ieri)
 ### MILESTONE 3
 
 > - Configuriamo l’app di backend (repo webapp-express) a ricevere chiamate dalla nostra applicazione React, installando e impostando il middleware CORS
-> - Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei libri
+> - Proviamo quindi ad effettuare una chiamata Ajax dalla home del progetto React, per ottenere la lista dei film
 
 ### MILESTONE 4
 
