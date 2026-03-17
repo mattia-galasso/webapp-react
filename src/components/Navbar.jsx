@@ -25,7 +25,7 @@ export default function Navbar() {
                 <NavLink
                   className="nav-link active"
                   aria-current="page"
-                  href="#"
+                  to={"/"}
                 >
                   Home
                 </NavLink>

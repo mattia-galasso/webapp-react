@@ -1,13 +1,36 @@
+import { Link } from "react-router";
+import { useMoviesFunction } from "../../contexts/MoviesContext";
+
 export default function MoviesList({ isMoviesList }) {
+  const { setMovieSelected } = useMoviesFunction();
+
   return (
     <>
       {isMoviesList.map((movie) => (
-        <ul key={movie.id} className="movieList">
-          <li>
-            <img src={movie.image} alt={movie.title} className="image" />
-          </li>
-          <li>{movie.title}</li>
-        </ul>
+        <div
+          key={movie.id}
+          className="card movieCard"
+          style={{ width: "18rem" }}
+        >
+          <img
+            src={movie.image}
+            className="card-img-top imageMovieCard"
+            alt={movie.title}
+          />
+          <div className="card-body">
+            <h5 className="card-title">{movie.title}</h5>
+            <p className="card-text"></p>
+            <Link
+              to={`/${movie.id}`}
+              className="btn btn-primary"
+              onClick={(e) => {
+                setMovieSelected(movie.id);
+              }}
+            >
+              See More
+            </Link>
+          </div>
+        </div>
       ))}
     </>
   );
