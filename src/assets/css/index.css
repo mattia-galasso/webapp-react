@@ -13,6 +13,20 @@
   object-fit: cover;
 }
 
+.body-movies-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.vote-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* DETAIL PAGE */
 .detail-header {
   display: flex;

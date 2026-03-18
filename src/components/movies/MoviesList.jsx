@@ -18,8 +18,13 @@ export default function MoviesList({ isMoviesList }) {
             alt={movie.title}
           />
           <div className="card-body">
-            <h5 className="card-title">{movie.title}</h5>
-            <p className="card-text"></p>
+            <div className="body-movies-card">
+              <h5 className="card-title">{movie.title}</h5>
+              <div className="vote-card">
+                <small>Vote:</small>
+                <p className="card-text">{parseInt(movie.avg_vote)}/5</p>
+              </div>
+            </div>
             <Link
               to={`/${movie.id}`}
               className="btn btn-primary"

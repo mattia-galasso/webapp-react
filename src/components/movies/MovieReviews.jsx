@@ -26,8 +26,7 @@ export default function MovieReviews({ reviews }) {
         <span>User Reviews</span>
         <hr className="line-header" />
       </div>
-      <div className="card">
-        <div className="card-header fw-bold">Reviews</div>
+      <div className="card my-3">
         <ul className="list-group list-group-flush">
           {reviews.map((review) => (
             <li key={review.id} className="list-group-item">
