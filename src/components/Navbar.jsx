@@ -1,13 +1,13 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export default function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Movies
-          </a>
+          <Link className="navbar-brand" to={"/"}>
+            <i className="bi bi-camera-reels-fill"></i>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

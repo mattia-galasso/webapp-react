@@ -9,19 +9,24 @@ function MoviesProvider({ children }) {
   const [moviesList, setMoviesList] = useState([]);
   const [movieSelected, setMovieSelected] = useState();
   const [isMovieDetail, setIsMovieDetail] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   //* API Index Call
   function fetchMoviesList() {
+    setIsLoading(true);
     axios.get(apiURL + "/movies").then((res) => {
       setMoviesList(res.data.result);
+      setIsLoading(false);
     });
   }
 
   //* API Show Call
   function fetchMovieDetail() {
     if (movieSelected) {
+      setIsLoading(true);
       axios.get(apiURL + `/movies/${movieSelected}`).then((res) => {
         setIsMovieDetail(res.data.result);
+        setIsLoading(false);
       });
     }
   }
@@ -35,6 +40,7 @@ function MoviesProvider({ children }) {
     moviesList,
     setMovieSelected,
     isMovieDetail,
+    isLoading,
   };
   return (
     <MoviesContext.Provider value={contextValue}>

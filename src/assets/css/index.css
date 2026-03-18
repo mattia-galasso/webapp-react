@@ -6,22 +6,53 @@
   gap: 2rem;
 }
 
-.movieCard {
-  height: 31rem;
-}
-
 .imageMovieCard {
-  height: 23rem;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
 }
 
 /* DETAIL PAGE */
 .detail-card {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  align-items: flex-start;
+  gap: 3rem;
 }
 
 .detail-text {
   margin-bottom: 0;
+}
+
+.detail-image {
+  aspect-ratio: 2/3;
+}
+
+/* LOADING PAGE */
+
+.loading-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loading-text {
+  font-weight: bold;
+}
+
+/* REVIEW COMPONENT */
+.date-author-review {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-stars {
+  color: gold;
+  font-size: 0.9rem;
+}
+
+.stars-icon {
+  text-shadow: 1px 1px black;
 }

@@ -4,7 +4,11 @@ export default function MovieDetail({ movie }) {
   return (
     <>
       <div key={movie.id} className="card" style={{ width: "20rem" }}>
-        <img src={movie.image} className="card-img-top" alt={movie.title} />
+        <img
+          src={movie.image}
+          className="card-img-top detail-image"
+          alt={movie.title}
+        />
         <div className="card-body">
           <h5 className="card-title my-1">{movie.title}</h5>
         </div>
