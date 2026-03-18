@@ -15,14 +15,18 @@ export default function MovieReviews({ reviews }) {
     for (let i = 1; i <= 5; i++) {
       i <= userVote
         ? stars.push(<i key={i} className="bi bi-star-fill stars-icon"></i>)
-        : stars.push(<i key={i} className="bi bi-star stars-empty-icon"></i>);
+        : stars.push(<i key={i} className="bi bi-star"></i>);
     }
     return stars;
   };
 
   return (
     <>
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="reviews-header">
+        <span>User Reviews</span>
+        <hr className="line-header" />
+      </div>
+      <div className="card">
         <div className="card-header fw-bold">Reviews</div>
         <ul className="list-group list-group-flush">
           {reviews.map((review) => (

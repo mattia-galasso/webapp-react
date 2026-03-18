@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Loading from "../components/Loading";
 import MovieDetail from "../components/movies/MovieDetail";
 import MovieReviews from "../components/movies/MovieReviews";
@@ -9,13 +10,19 @@ export default function MovieDetailPage() {
   return (
     <>
       <div className="container">
-        <h1 className="my-4">
-          <small>Movie Detail:</small> {isMovieDetail.title}
-        </h1>
+        <div className="detail-header">
+          <h2 className="my-4">
+            <small>Movie Detail:</small> {isMovieDetail.title}
+          </h2>
+          <Link to={`/`} className="btn btn-primary">
+            Go Back
+          </Link>
+        </div>
+
         {isLoading ? (
           <Loading />
         ) : (
-          <div className="detail-card">
+          <div className="">
             <MovieDetail movie={isMovieDetail} />
             <MovieReviews reviews={isMovieDetail.reviews} />
           </div>
