@@ -1,8 +1,9 @@
 import { Link } from "react-router";
 import Loading from "../components/Loading";
 import MovieDetail from "../components/movies/MovieDetail";
-import MovieReviews from "../components/movies/MovieReviews";
+import MovieReviews from "../components/reviews/MovieReviews";
 import { useMoviesFunction } from "../contexts/MoviesContext";
+import ReviewForm from "../components/reviews/reviewForm";
 
 export default function MovieDetailPage() {
   const { isMovieDetail, isLoading } = useMoviesFunction();
@@ -18,13 +19,13 @@ export default function MovieDetailPage() {
             Go Back
           </Link>
         </div>
-
         {isLoading ? (
           <Loading />
         ) : (
           <div className="">
             <MovieDetail movie={isMovieDetail} />
             <MovieReviews reviews={isMovieDetail.reviews} />
+            <ReviewForm />
           </div>
         )}
       </div>
