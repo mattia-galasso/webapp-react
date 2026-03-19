@@ -1,9 +1,6 @@
 import { Link } from "react-router";
-import { useMoviesFunction } from "../../contexts/MoviesContext";
 
 export default function MoviesList({ isMoviesList }) {
-  const { setMovieSelected } = useMoviesFunction();
-
   return (
     <>
       {isMoviesList.map((movie) => (
@@ -25,13 +22,7 @@ export default function MoviesList({ isMoviesList }) {
                 <p className="card-text">{parseInt(movie.avg_vote)}/5</p>
               </div>
             </div>
-            <Link
-              to={`/${movie.id}`}
-              className="btn btn-primary"
-              onClick={(e) => {
-                setMovieSelected(movie.id);
-              }}
-            >
+            <Link to={`/${movie.id}`} className="btn btn-primary">
               See More
             </Link>
           </div>
