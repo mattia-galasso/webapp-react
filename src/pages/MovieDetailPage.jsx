@@ -4,7 +4,7 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import MovieDetail from "../components/movies/MovieDetail";
 import MovieReviews from "../components/reviews/MovieReviews";
-import ReviewForm from "../components/reviews/reviewForm";
+import ReviewForm from "../components/reviews/ReviewForm";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
@@ -42,7 +42,7 @@ export default function MovieDetailPage() {
           <div className="">
             <MovieDetail movie={movieDetail} />
             <MovieReviews reviews={movieDetail.reviews} />
-            <ReviewForm />
+            <ReviewForm movieID={id} afterFormSubmit={fetchMovieDetail} />
           </div>
         )}
       </div>
