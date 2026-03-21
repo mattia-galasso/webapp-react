@@ -1,16 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
-
+import { useLoadingFunction } from "../../contexts/LoadingContext";
 const apiURL = import.meta.env.VITE_API_URL;
 
-const initialData = {
+const reviewInitialData = {
   name: "",
   vote: "",
   text: "",
 };
 
-export default function ReviewForm(movieID, afterFormSubmit) {
-  const [reviewData, setReviewData] = useState(initialData);
+export default function ReviewForm({ movieID, afterFormSubmit }) {
+  const { startLoading, endLoading } = useLoadingFunction();
+  const [reviewData, setReviewData] = useState(reviewInitialData);
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -24,8 +25,7 @@ export default function ReviewForm(movieID, afterFormSubmit) {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios.post(apiURL + `/movies/${movieID}/review`, reviewData).then((res) => {
-      console.log(res.data);
-      setReviewData(initialData);
+      setReviewData(reviewInitialData);
       afterFormSubmit();
     });
   };

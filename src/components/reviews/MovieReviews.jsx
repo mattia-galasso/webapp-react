@@ -1,3 +1,5 @@
+import Vote from "../Vote";
+
 export default function MovieReviews({ reviews }) {
   const dateTimeString = (string) => {
     const dateTime = new Date(string);
@@ -7,17 +9,6 @@ export default function MovieReviews({ reviews }) {
       minute: "2-digit",
     });
     return date + " | " + time;
-  };
-
-  const voteToStars = (userVote) => {
-    const stars = [];
-
-    for (let i = 1; i <= 5; i++) {
-      i <= userVote
-        ? stars.push(<i key={i} className="bi bi-star-fill stars-icon"></i>)
-        : stars.push(<i key={i} className="bi bi-star"></i>);
-    }
-    return stars;
   };
 
   return (
@@ -40,7 +31,9 @@ export default function MovieReviews({ reviews }) {
                 <small className="badge text-bg-secondary">
                   {dateTimeString(review.created_at)}
                 </small>
-                <p className="review-stars mb-0">{voteToStars(review.vote)}</p>
+                <p className="review-stars mb-0">
+                  {<Vote userVote={review.vote} />}
+                </p>
               </div>
             </li>
           ))}

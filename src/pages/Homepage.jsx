@@ -1,24 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import MoviesList from "../components/movies/MoviesList";
-import Loading from "../components/Loading";
-
+import { useLoadingFunction } from "../contexts/LoadingContext";
 const apiURL = import.meta.env.VITE_API_URL;
 
 export default function Homepage() {
+  const { startLoading, endLoading } = useLoadingFunction();
   //* useState Constant
   const [moviesList, setMoviesList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   //* useEffect
   useEffect(fetchMoviesList, []);
 
   //* API Index Call
   function fetchMoviesList() {
-    setIsLoading(true);
+    startLoading();
     axios.get(apiURL + "/movies").then((res) => {
       setMoviesList(res.data.result);
-      setIsLoading(false);
+      endLoading();
     });
   }
 
@@ -26,13 +25,9 @@ export default function Homepage() {
     <>
       <div className="container">
         <h1 className="my-4">Movies List</h1>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <div className="movieList">
-            <MoviesList isMoviesList={moviesList} />
-          </div>
-        )}
+        <div className="movieList">
+          <MoviesList isMoviesList={moviesList} />
+        </div>
       </div>
     </>
   );

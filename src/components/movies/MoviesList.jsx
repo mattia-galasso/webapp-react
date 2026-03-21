@@ -19,7 +19,9 @@ export default function MoviesList({ isMoviesList }) {
               <h5 className="card-title">{movie.title}</h5>
               <div className="vote-card">
                 <small>Vote:</small>
-                <p className="card-text">{parseInt(movie.avg_vote)}/5</p>
+                <p className="card-text">
+                  {movie.avg_vote ? parseInt(movie.avg_vote) + "/5" : `N/A`}
+                </p>
               </div>
             </div>
             <Link to={`/${movie.id}`} className="btn btn-primary">
